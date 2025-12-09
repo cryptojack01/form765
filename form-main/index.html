@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Detection & Auto-Routing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .device-info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .device-info p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .device-label {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .info-text {
+            color: #999;
+            font-size: 14px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #f5f5f5;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome!</h1>
+        
+        <div class="device-info">
+            <p><strong>Device Detected:</strong></p>
+            <div class="device-label" id="deviceType">Detecting...</div>
+            <p id="deviceDetails" style="margin-top: 15px; font-size: 14px;"></p>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-primary" id="autoRouteBtn" onclick="autoRoute()">
+                Go to Your Version
+            </button>
+            <button class="btn-secondary" onclick="viewPCVersion()">
+                View PC Version
+            </button>
+            <button class="btn-secondary" onclick="viewMobileVersion()">
+                View Mobile Version
+            </button>
+        </div>
+        
+        <div class="info-text">
+            <p>This page automatically detects your device type and routes you to the optimized version.</p>
+            <p style="margin-top: 10px; font-size: 12px; color: #ccc;">Device Detection & Auto-Routing</p>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 15px; color: #667eea;">Redirecting...</p>
+        </div>
+    </div>
+
+    <script>
+        // Device Detection Logic
+        const deviceDetector = {
+            // Detect if device is mobile
+            isMobile: function() {
+                const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+                const isMobileUA = mobileRegex.test(navigator.userAgent);
+                const isSmallScreen = window.innerWidth < 768;
+                return isMobileUA || isSmallScreen;
+            },
+            
+            // Get device type
+            getDeviceType: function() {
+                if (this.isMobile()) {
+                    return 'mobile';
+                }
+                return 'pc';
+            },
+            
+            // Get detailed device info
+            getDeviceInfo: function() {
+                const userAgent = navigator.userAgent;
+                const screenSize = `${window.innerWidth}x${window.innerHeight}`;
+                let osName = 'Unknown';
+                let deviceName = 'Unknown';
+                
+                // Detect OS
+                if (userAgent.indexOf('Windows') > -1) {
+                    osName = 'Windows';
+                } else if (userAgent.indexOf('Mac') > -1) {
+                    osName = 'macOS';
+                } else if (userAgent.indexOf('Linux') > -1) {
+                    osName = 'Linux';
+                } else if (userAgent.indexOf('iPhone') > -1) {
+                    osName = 'iOS';
+                    deviceName = 'iPhone';
+                } else if (userAgent.indexOf('iPad') > -1) {
+                    osName = 'iOS';
+                    deviceName = 'iPad';
+                } else if (userAgent.indexOf('Android') > -1) {
+                    osName = 'Android';
+                    deviceName = 'Android Device';
+                }
+                
+                return {
+                    os: osName,
+                    device: deviceName,
+                    screen: screenSize,
+                    userAgent: userAgent.substring(0, 50) + '...'
+                };
+            }
+        };
+        
+        // Update UI with device detection
+        function updateDeviceDisplay() {
+            const deviceType = deviceDetector.getDeviceType();
+            const deviceInfo = deviceDetector.getDeviceInfo();
+            const deviceTypeLabel = document.getElementById('deviceType');
+            const deviceDetailsEl = document.getElementById('deviceDetails');
+            
+            // Update device type label
+            if (deviceType === 'mobile') {
+                deviceTypeLabel.textContent = '📱 Mobile Device';
+                deviceTypeLabel.style.background = '#f093fb';
+            } else {
+                deviceTypeLabel.textContent = '💻 PC / Desktop';
+                deviceTypeLabel.style.background = '#667eea';
+            }
+            
+            // Update device details
+            deviceDetailsEl.innerHTML = `
+                <strong>OS:</strong> ${deviceInfo.os}<br>
+                <strong>Screen:</strong> ${deviceInfo.screen}px<br>
+                <strong>Device:</strong> ${deviceInfo.device}
+            `;
+        }
+        
+        // Auto-route to appropriate version
+        function autoRoute() {
+            showLoading();
+            const deviceType = deviceDetector.getDeviceType();
+            
+            setTimeout(() => {
+                if (deviceType === 'mobile') {
+                    window.location.href = './mobile/index.html';
+                } else {
+                    window.location.href = './pc/index.html';
+                }
+            }, 1000);
+        }
+        
+        // Navigate to PC version
+        function viewPCVersion() {
+            showLoading();
+            setTimeout(() => {
+                window.location.href = './pc/index.html';
+            }, 500);
+        }
+        
+        // Navigate to Mobile version
+        function viewMobileVersion() {
+            showLoading();
+            setTimeout(() => {
+                window.location.href = './mobile/index.html';
+            }, 500);
+        }
+        
+        // Show loading spinner
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.querySelector('.button-group').style.opacity = '0.5';
+            document.querySelector('.button-group').style.pointerEvents = 'none';
+        }
+        
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            updateDeviceDisplay();
+        });
+        
+        // Update on window resize
+        window.addEventListener('resize', function() {
+            updateDeviceDisplay();
+        });
+    </script>
+</body>
+</html>
