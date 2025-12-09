@@ -1,0 +1,1028 @@
+{
+  "formMetadata": {
+    "formTitle": "Application of Employment Authorization",
+    "formNumber": "I-765",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-09T02:37:47Z",
+    "description": "Complete field configuration for USCIS Form I-765 with PDF mapping and validation rules",
+    "totalPages": 2,
+    "totalFields": 68
+  },
+  "part1": {
+    "partName": "Reason for Applying",
+    "partNumber": 1,
+    "pageNumber": 1,
+    "description": "Selection of eligibility category and reason for employment authorization",
+    "fields": [
+      {
+        "fieldId": "part1_reason_1",
+        "itemNumber": "1",
+        "fieldName": "Reason for Applying - Category A",
+        "chineseLabel": "申请原因 - 第A类",
+        "englishLabel": "Reason for Applying - Category A",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Reason_for_applying[0]",
+        "instructionNotes": "Check if you are applying based on adjustment of status pending or filed",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part1_reason_2", "part1_reason_3", "part1_reason_4", "part1_reason_5", "part1_reason_6"],
+          "type": "boolean"
+        },
+        "helpText": "Select this box if your I-485 is pending or filed with USCIS"
+      },
+      {
+        "fieldId": "part1_reason_2",
+        "itemNumber": "1",
+        "fieldName": "Reason for Applying - Category B",
+        "chineseLabel": "申请原因 - 第B类",
+        "englishLabel": "Reason for Applying - Category B",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Reason_for_applying[1]",
+        "instructionNotes": "Check if you are an immediate relative of U.S. citizen",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part1_reason_1", "part1_reason_3", "part1_reason_4", "part1_reason_5", "part1_reason_6"],
+          "type": "boolean"
+        },
+        "helpText": "Select this box if you are an immediate relative of a U.S. citizen"
+      },
+      {
+        "fieldId": "part1_reason_3",
+        "itemNumber": "1",
+        "fieldName": "Reason for Applying - Category C",
+        "chineseLabel": "申请原因 - 第C类",
+        "englishLabel": "Reason for Applying - Category C",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Reason_for_applying[2]",
+        "instructionNotes": "Check if you have a pending I-140 petition",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part1_reason_1", "part1_reason_2", "part1_reason_4", "part1_reason_5", "part1_reason_6"],
+          "type": "boolean"
+        },
+        "helpText": "Select this box if you have a pending I-140 employment-based petition"
+      },
+      {
+        "fieldId": "part1_reason_4",
+        "itemNumber": "1",
+        "fieldName": "Reason for Applying - Category D",
+        "chineseLabel": "申请原因 - 第D类",
+        "englishLabel": "Reason for Applying - Category D",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Reason_for_applying[3]",
+        "instructionNotes": "Check if you are a refugee or asylee",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part1_reason_1", "part1_reason_2", "part1_reason_3", "part1_reason_5", "part1_reason_6"],
+          "type": "boolean"
+        },
+        "helpText": "Select this box if you were admitted as a refugee or granted asylum"
+      },
+      {
+        "fieldId": "part1_reason_5",
+        "itemNumber": "1",
+        "fieldName": "Reason for Applying - Category E",
+        "chineseLabel": "申请原因 - 第E类",
+        "englishLabel": "Reason for Applying - Category E",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Reason_for_applying[4]",
+        "instructionNotes": "Check if you have a pending family-based petition",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part1_reason_1", "part1_reason_2", "part1_reason_3", "part1_reason_4", "part1_reason_6"],
+          "type": "boolean"
+        },
+        "helpText": "Select this box if you have a pending family-based visa petition"
+      },
+      {
+        "fieldId": "part1_reason_6",
+        "itemNumber": "1",
+        "fieldName": "Reason for Applying - Category F",
+        "chineseLabel": "申请原因 - 第F类",
+        "englishLabel": "Reason for Applying - Category F",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Reason_for_applying[5]",
+        "instructionNotes": "Check if you have another eligible category",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part1_reason_1", "part1_reason_2", "part1_reason_3", "part1_reason_4", "part1_reason_5"],
+          "type": "boolean"
+        },
+        "helpText": "Select this box if you fall under another eligible category"
+      }
+    ]
+  },
+  "part2": {
+    "partName": "Information About You",
+    "partNumber": 2,
+    "pageNumber": 1,
+    "description": "Personal identification and biographical information",
+    "fields": [
+      {
+        "fieldId": "part2_family_name",
+        "itemNumber": "1.a",
+        "fieldName": "Family Name",
+        "chineseLabel": "姓氏",
+        "englishLabel": "Family Name",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Family_Name",
+        "instructionNotes": "Enter your family name (surname) as shown in passport or birth certificate",
+        "validationRules": {
+          "required": true,
+          "maxLength": 30,
+          "pattern": "^[a-zA-Z\\s'-]*$",
+          "type": "string"
+        },
+        "helpText": "Your last name"
+      },
+      {
+        "fieldId": "part2_given_name",
+        "itemNumber": "1.b",
+        "fieldName": "Given Name",
+        "chineseLabel": "名字",
+        "englishLabel": "Given Name",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Given_Name",
+        "instructionNotes": "Enter your given name (first name) as shown in passport or birth certificate",
+        "validationRules": {
+          "required": true,
+          "maxLength": 25,
+          "pattern": "^[a-zA-Z\\s'-]*$",
+          "type": "string"
+        },
+        "helpText": "Your first name"
+      },
+      {
+        "fieldId": "part2_middle_name",
+        "itemNumber": "1.c",
+        "fieldName": "Middle Name",
+        "chineseLabel": "中间名",
+        "englishLabel": "Middle Name",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Middle_Name",
+        "instructionNotes": "Enter your middle name if applicable (optional)",
+        "validationRules": {
+          "required": false,
+          "maxLength": 25,
+          "pattern": "^[a-zA-Z\\s'-]*$",
+          "type": "string"
+        },
+        "helpText": "Your middle name (if applicable)"
+      },
+      {
+        "fieldId": "part2_date_of_birth",
+        "itemNumber": "2",
+        "fieldName": "Date of Birth",
+        "chineseLabel": "出生日期",
+        "englishLabel": "Date of Birth",
+        "fieldType": "Date Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Date_of_Birth",
+        "instructionNotes": "Enter your date of birth in MM/DD/YYYY format",
+        "validationRules": {
+          "required": true,
+          "format": "MM/DD/YYYY",
+          "minAge": 0,
+          "maxAge": 120,
+          "type": "date"
+        },
+        "helpText": "Use MM/DD/YYYY format"
+      },
+      {
+        "fieldId": "part2_country_of_birth",
+        "itemNumber": "3",
+        "fieldName": "Country of Birth",
+        "chineseLabel": "出生国家",
+        "englishLabel": "Country of Birth",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Country_of_Birth",
+        "instructionNotes": "Enter the name of the country where you were born",
+        "validationRules": {
+          "required": true,
+          "maxLength": 30,
+          "type": "string"
+        },
+        "helpText": "Name of your birth country"
+      },
+      {
+        "fieldId": "part2_country_of_citizenship",
+        "itemNumber": "4",
+        "fieldName": "Country of Citizenship",
+        "chineseLabel": "国籍",
+        "englishLabel": "Country of Citizenship",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Country_of_Citizenship",
+        "instructionNotes": "Enter your country of citizenship",
+        "validationRules": {
+          "required": true,
+          "maxLength": 30,
+          "type": "string"
+        },
+        "helpText": "Your country of citizenship"
+      },
+      {
+        "fieldId": "part2_alien_number",
+        "itemNumber": "5",
+        "fieldName": "Alien Number",
+        "chineseLabel": "外国人编号",
+        "englishLabel": "Alien Number (If you have an A-Number)",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Alien_Number",
+        "instructionNotes": "Enter your A-Number if issued (9 digits, optional if not yet assigned)",
+        "validationRules": {
+          "required": false,
+          "pattern": "^\\d{9}$",
+          "maxLength": 9,
+          "type": "string"
+        },
+        "helpText": "9-digit USCIS A-Number (if assigned)"
+      },
+      {
+        "fieldId": "part2_social_security_number",
+        "itemNumber": "6",
+        "fieldName": "Social Security Number",
+        "chineseLabel": "社会保障号码",
+        "englishLabel": "Social Security Number (If issued)",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].SSN",
+        "instructionNotes": "Enter your Social Security Number if issued (XXX-XX-XXXX format)",
+        "validationRules": {
+          "required": false,
+          "pattern": "^\\d{3}-\\d{2}-\\d{4}$",
+          "type": "string"
+        },
+        "helpText": "XXX-XX-XXXX format"
+      },
+      {
+        "fieldId": "part2_gender_male",
+        "itemNumber": "7",
+        "fieldName": "Gender - Male",
+        "chineseLabel": "性别 - 男性",
+        "englishLabel": "Gender - Male",
+        "fieldType": "Radio",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Gender[0]",
+        "instructionNotes": "Select if you are male",
+        "validationRules": {
+          "required": true,
+          "mutuallyExclusive": ["part2_gender_female"],
+          "type": "boolean"
+        },
+        "helpText": "Select one option"
+      },
+      {
+        "fieldId": "part2_gender_female",
+        "itemNumber": "7",
+        "fieldName": "Gender - Female",
+        "chineseLabel": "性别 - 女性",
+        "englishLabel": "Gender - Female",
+        "fieldType": "Radio",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Gender[1]",
+        "instructionNotes": "Select if you are female",
+        "validationRules": {
+          "required": true,
+          "mutuallyExclusive": ["part2_gender_male"],
+          "type": "boolean"
+        },
+        "helpText": "Select one option"
+      },
+      {
+        "fieldId": "part2_marital_status_single",
+        "itemNumber": "8",
+        "fieldName": "Marital Status - Single",
+        "chineseLabel": "婚姻状况 - 单身",
+        "englishLabel": "Marital Status - Single",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Marital_Status[0]",
+        "instructionNotes": "Check if you have never been married",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part2_marital_status_married", "part2_marital_status_divorced", "part2_marital_status_widowed"],
+          "type": "boolean"
+        },
+        "helpText": "Never been married"
+      },
+      {
+        "fieldId": "part2_marital_status_married",
+        "itemNumber": "8",
+        "fieldName": "Marital Status - Married",
+        "chineseLabel": "婚姻状况 - 已婚",
+        "englishLabel": "Marital Status - Married",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Marital_Status[1]",
+        "instructionNotes": "Check if you are currently married",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part2_marital_status_single", "part2_marital_status_divorced", "part2_marital_status_widowed"],
+          "type": "boolean"
+        },
+        "helpText": "Currently married"
+      },
+      {
+        "fieldId": "part2_marital_status_divorced",
+        "itemNumber": "8",
+        "fieldName": "Marital Status - Divorced",
+        "chineseLabel": "婚姻状况 - 离婚",
+        "englishLabel": "Marital Status - Divorced",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Marital_Status[2]",
+        "instructionNotes": "Check if you are divorced",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part2_marital_status_single", "part2_marital_status_married", "part2_marital_status_widowed"],
+          "type": "boolean"
+        },
+        "helpText": "Legally divorced"
+      },
+      {
+        "fieldId": "part2_marital_status_widowed",
+        "itemNumber": "8",
+        "fieldName": "Marital Status - Widowed",
+        "chineseLabel": "婚姻状况 - 寡妇/鳏夫",
+        "englishLabel": "Marital Status - Widowed",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Marital_Status[3]",
+        "instructionNotes": "Check if you are widowed",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part2_marital_status_single", "part2_marital_status_married", "part2_marital_status_divorced"],
+          "type": "boolean"
+        },
+        "helpText": "Spouse is deceased"
+      }
+    ]
+  },
+  "part3": {
+    "partName": "Eligibility Category",
+    "partNumber": 3,
+    "pageNumber": 1,
+    "description": "Specific eligibility category selection and supporting information",
+    "fields": [
+      {
+        "fieldId": "part3_category_a",
+        "itemNumber": "1",
+        "fieldName": "Category (a) - I-485 Pending",
+        "chineseLabel": "类别 (a) - I-485待审",
+        "englishLabel": "Category (a) - I-485 pending or filed",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[0]",
+        "instructionNotes": "Check if you have I-485 pending with USCIS",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Adjustment of status application pending"
+      },
+      {
+        "fieldId": "part3_category_b",
+        "itemNumber": "1",
+        "fieldName": "Category (b) - Immediate Relative",
+        "chineseLabel": "类别 (b) - 美国公民的直系亲属",
+        "englishLabel": "Category (b) - Immediate Relative of U.S. Citizen",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[1]",
+        "instructionNotes": "Check if you are an immediate relative of U.S. citizen",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Spouse, parent, or unmarried child under 21"
+      },
+      {
+        "fieldId": "part3_category_c",
+        "itemNumber": "1",
+        "fieldName": "Category (c) - Refugee/Asylee",
+        "chineseLabel": "类别 (c) - 难民/寻求庇护者",
+        "englishLabel": "Category (c) - Refugee or Asylee",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[2]",
+        "instructionNotes": "Check if you were granted refugee or asylum status",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Admitted as refugee or granted asylum"
+      },
+      {
+        "fieldId": "part3_category_d",
+        "itemNumber": "1",
+        "fieldName": "Category (d) - Paroled into US",
+        "chineseLabel": "类别 (d) - 被释放进入美国",
+        "englishLabel": "Category (d) - Paroled into the United States",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[3]",
+        "instructionNotes": "Check if you were paroled into the US",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Paroled for emergency or humanitarian purposes"
+      },
+      {
+        "fieldId": "part3_category_e",
+        "itemNumber": "1",
+        "fieldName": "Category (e) - Violence Victim",
+        "chineseLabel": "类别 (e) - 暴力受害者",
+        "englishLabel": "Category (e) - Violence Victim under VAWA",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[4]",
+        "instructionNotes": "Check if you are a victim of severe form of trafficking or violence",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Trafficking victim, domestic violence victim, or crime victim"
+      },
+      {
+        "fieldId": "part3_category_f",
+        "itemNumber": "1",
+        "fieldName": "Category (f) - Special Immigrant",
+        "chineseLabel": "类别 (f) - 特殊移民",
+        "englishLabel": "Category (f) - Special Immigrant Status",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[5]",
+        "instructionNotes": "Check if you are a special immigrant",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Special immigrant status under INA"
+      },
+      {
+        "fieldId": "part3_category_g",
+        "itemNumber": "1",
+        "fieldName": "Category (g) - Cuban/Haitian Entrant",
+        "chineseLabel": "类别 (g) - 古巴/海地入境者",
+        "englishLabel": "Category (g) - Cuban or Haitian Entrant",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[6]",
+        "instructionNotes": "Check if you are Cuban or Haitian entrant",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Cuban national or Haitian national"
+      },
+      {
+        "fieldId": "part3_category_h",
+        "itemNumber": "1",
+        "fieldName": "Category (h) - Dependent of Special Immigrant",
+        "chineseLabel": "类别 (h) - 特殊移民的受赡养人",
+        "englishLabel": "Category (h) - Dependent of Special Immigrant",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[7]",
+        "instructionNotes": "Check if you are dependent of special immigrant",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Spouse or child of special immigrant"
+      },
+      {
+        "fieldId": "part3_category_i",
+        "itemNumber": "1",
+        "fieldName": "Category (i) - Deferred Action Status",
+        "chineseLabel": "类别 (i) - 延期遣返身份",
+        "englishLabel": "Category (i) - Deferred Action Status",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[8]",
+        "instructionNotes": "Check if you have deferred action status granted by USCIS",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "DACA or other deferred action"
+      },
+      {
+        "fieldId": "part3_category_j",
+        "itemNumber": "1",
+        "fieldName": "Category (j) - Family Preference Petition",
+        "chineseLabel": "类别 (j) - 家庭优先签证请愿",
+        "englishLabel": "Category (j) - Family Preference Petition",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[9]",
+        "instructionNotes": "Check if you have pending family preference visa petition",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Pending family-based visa petition"
+      },
+      {
+        "fieldId": "part3_category_k",
+        "itemNumber": "1",
+        "fieldName": "Category (k) - Employment-Based Petition",
+        "chineseLabel": "类别 (k) - 以就业为基础的申请",
+        "englishLabel": "Category (k) - Employment-Based Petition",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[10]",
+        "instructionNotes": "Check if you have pending employment-based petition",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_l", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Pending employment-based visa petition"
+      },
+      {
+        "fieldId": "part3_category_l",
+        "itemNumber": "1",
+        "fieldName": "Category (l) - Adjustment Status Granted",
+        "chineseLabel": "类别 (l) - 身份调整已批准",
+        "englishLabel": "Category (l) - Adjustment of Status Granted",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[11]",
+        "instructionNotes": "Check if you are pursuing adjustment of status and eligible under INA 245(c)",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_m", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "Filing adjustment application"
+      },
+      {
+        "fieldId": "part3_category_m",
+        "itemNumber": "1",
+        "fieldName": "Category (m) - Protected Status",
+        "chineseLabel": "类别 (m) - 受保护身份",
+        "englishLabel": "Category (m) - Temporary Protected Status",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[12]",
+        "instructionNotes": "Check if you have Temporary Protected Status (TPS)",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_n"],
+          "type": "boolean"
+        },
+        "helpText": "TPS or VAWA protected status"
+      },
+      {
+        "fieldId": "part3_category_n",
+        "itemNumber": "1",
+        "fieldName": "Category (n) - Other Categories",
+        "chineseLabel": "类别 (n) - 其他类别",
+        "englishLabel": "Category (n) - Other Eligible Categories",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Eligibility_Category[13]",
+        "instructionNotes": "Check if you fall under other eligible category (specify in notes)",
+        "validationRules": {
+          "required": false,
+          "mutuallyExclusive": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m"],
+          "type": "boolean"
+        },
+        "helpText": "Other eligible category (provide details)"
+      },
+      {
+        "fieldId": "part3_category_other_description",
+        "itemNumber": "1",
+        "fieldName": "Other Category Description",
+        "chineseLabel": "其他类别描述",
+        "englishLabel": "Describe Other Eligible Category",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page1[0].Category_Other_Description",
+        "instructionNotes": "If category (n) is selected, describe your eligible category here",
+        "validationRules": {
+          "required": false,
+          "maxLength": 100,
+          "type": "string"
+        },
+        "helpText": "Provide details about your eligibility"
+      }
+    ]
+  },
+  "part4": {
+    "partName": "Applicant's Statement and Declaration",
+    "partNumber": 4,
+    "pageNumber": 2,
+    "description": "Certification, declaration, and signature of applicant",
+    "fields": [
+      {
+        "fieldId": "part4_requested_validity_period",
+        "itemNumber": "1",
+        "fieldName": "Requested Work Authorization Validity Period",
+        "chineseLabel": "申请的工作授权有效期",
+        "englishLabel": "Requested Work Authorization Validity Period",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Requested_Validity_Period",
+        "instructionNotes": "Enter number of months for which you request employment authorization (1-24 months)",
+        "validationRules": {
+          "required": false,
+          "pattern": "^([1-9]|1[0-9]|2[0-4])$",
+          "minValue": 1,
+          "maxValue": 24,
+          "type": "number"
+        },
+        "helpText": "Enter number of months (1-24)"
+      },
+      {
+        "fieldId": "part4_certify_statement",
+        "itemNumber": "2",
+        "fieldName": "Applicant Certification Statement",
+        "chineseLabel": "申请人证明声明",
+        "englishLabel": "I certify that the information contained in this application is true and correct",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Certify_Statement",
+        "instructionNotes": "Check to certify that all information provided is true and correct under penalty of perjury",
+        "validationRules": {
+          "required": true,
+          "type": "boolean"
+        },
+        "helpText": "Required - you must check this box to sign and submit"
+      },
+      {
+        "fieldId": "part4_applicant_signature",
+        "itemNumber": "3",
+        "fieldName": "Applicant Signature",
+        "chineseLabel": "申请人签名",
+        "englishLabel": "Applicant Signature",
+        "fieldType": "Signature",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Applicant_Signature",
+        "instructionNotes": "Sign your name in English exactly as it appears on your passport",
+        "validationRules": {
+          "required": true,
+          "type": "signature"
+        },
+        "helpText": "Sign your name - must match your legal name"
+      },
+      {
+        "fieldId": "part4_date_of_signature",
+        "itemNumber": "4",
+        "fieldName": "Date of Signature",
+        "chineseLabel": "签名日期",
+        "englishLabel": "Date of Signature",
+        "fieldType": "Date Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Date_of_Signature",
+        "instructionNotes": "Enter the date when you sign this application in MM/DD/YYYY format",
+        "validationRules": {
+          "required": true,
+          "format": "MM/DD/YYYY",
+          "minDate": "1900-01-01",
+          "maxDate": "2099-12-31",
+          "type": "date"
+        },
+        "helpText": "Use MM/DD/YYYY format"
+      },
+      {
+        "fieldId": "part4_declarant_full_name",
+        "itemNumber": "5",
+        "fieldName": "Declarant Full Name",
+        "chineseLabel": "申报人全名",
+        "englishLabel": "Full Name (Print)",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Declarant_Name",
+        "instructionNotes": "Print your full name in the same order as in Part 2",
+        "validationRules": {
+          "required": true,
+          "maxLength": 80,
+          "pattern": "^[a-zA-Z\\s'-]*$",
+          "type": "string"
+        },
+        "helpText": "Print your complete name"
+      },
+      {
+        "fieldId": "part4_declaration_checkbox",
+        "itemNumber": "6",
+        "fieldName": "Declaration Statement Checkbox",
+        "chineseLabel": "声明陈述复选框",
+        "englishLabel": "I declare under penalty of perjury under the laws of the United States",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Declaration_Checkbox",
+        "instructionNotes": "Check to declare under penalty of perjury that the information is true",
+        "validationRules": {
+          "required": true,
+          "type": "boolean"
+        },
+        "helpText": "Required - affirm statement is true under penalty of perjury"
+      },
+      {
+        "fieldId": "part4_interpreter_used",
+        "itemNumber": "7.a",
+        "fieldName": "Interpreter Used",
+        "chineseLabel": "使用了翻译",
+        "englishLabel": "An Interpreter was used",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Interpreter_Used[0]",
+        "instructionNotes": "Check if an interpreter was used in completing this application",
+        "validationRules": {
+          "required": false,
+          "type": "boolean"
+        },
+        "helpText": "Check if interpreter assisted in application"
+      },
+      {
+        "fieldId": "part4_interpreter_language",
+        "itemNumber": "7.b",
+        "fieldName": "Interpreter Language",
+        "chineseLabel": "翻译语言",
+        "englishLabel": "Language Interpreted",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Interpreter_Language",
+        "instructionNotes": "If interpreter was used, enter the language they interpreted",
+        "validationRules": {
+          "required": false,
+          "maxLength": 30,
+          "type": "string"
+        },
+        "helpText": "Language of interpretation"
+      },
+      {
+        "fieldId": "part4_interpreter_name",
+        "itemNumber": "7.c",
+        "fieldName": "Interpreter Name",
+        "chineseLabel": "翻译名字",
+        "englishLabel": "Interpreter Name",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Interpreter_Name",
+        "instructionNotes": "If interpreter was used, enter their full name",
+        "validationRules": {
+          "required": false,
+          "maxLength": 60,
+          "pattern": "^[a-zA-Z\\s'-]*$",
+          "type": "string"
+        },
+        "helpText": "Full name of interpreter"
+      },
+      {
+        "fieldId": "part4_preparer_different_from_applicant",
+        "itemNumber": "8.a",
+        "fieldName": "Preparer Different From Applicant",
+        "chineseLabel": "准备者与申请人不同",
+        "englishLabel": "Preparer is different from applicant",
+        "fieldType": "Checkbox",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Different[0]",
+        "instructionNotes": "Check if someone other than the applicant prepared this application",
+        "validationRules": {
+          "required": false,
+          "type": "boolean"
+        },
+        "helpText": "Check if attorney or representative completed form"
+      },
+      {
+        "fieldId": "part4_preparer_name",
+        "itemNumber": "8.b",
+        "fieldName": "Preparer Name",
+        "chineseLabel": "准备者名字",
+        "englishLabel": "Preparer Name",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Name",
+        "instructionNotes": "Enter the full name of the person who prepared this application",
+        "validationRules": {
+          "required": false,
+          "maxLength": 60,
+          "pattern": "^[a-zA-Z\\s'-]*$",
+          "type": "string"
+        },
+        "helpText": "Name of attorney, representative, or preparer"
+      },
+      {
+        "fieldId": "part4_preparer_title",
+        "itemNumber": "8.c",
+        "fieldName": "Preparer Title",
+        "chineseLabel": "准备者职位",
+        "englishLabel": "Preparer Title",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Title",
+        "instructionNotes": "Enter the title or position of the preparer (Attorney, Representative, etc.)",
+        "validationRules": {
+          "required": false,
+          "maxLength": 40,
+          "type": "string"
+        },
+        "helpText": "Title or role of preparer"
+      },
+      {
+        "fieldId": "part4_preparer_organization",
+        "itemNumber": "8.d",
+        "fieldName": "Preparer Organization",
+        "chineseLabel": "准备者组织",
+        "englishLabel": "Preparer Organization",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Organization",
+        "instructionNotes": "Enter the name of the organization the preparer works for",
+        "validationRules": {
+          "required": false,
+          "maxLength": 60,
+          "type": "string"
+        },
+        "helpText": "Name of law firm or organization"
+      },
+      {
+        "fieldId": "part4_preparer_street_address",
+        "itemNumber": "8.e",
+        "fieldName": "Preparer Street Address",
+        "chineseLabel": "准备者街道地址",
+        "englishLabel": "Preparer Street Address",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Street_Address",
+        "instructionNotes": "Enter the street address of the preparer's office",
+        "validationRules": {
+          "required": false,
+          "maxLength": 50,
+          "type": "string"
+        },
+        "helpText": "Street number and name"
+      },
+      {
+        "fieldId": "part4_preparer_city",
+        "itemNumber": "8.f",
+        "fieldName": "Preparer City",
+        "chineseLabel": "准备者城市",
+        "englishLabel": "Preparer City",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_City",
+        "instructionNotes": "Enter the city where the preparer is located",
+        "validationRules": {
+          "required": false,
+          "maxLength": 30,
+          "type": "string"
+        },
+        "helpText": "City name"
+      },
+      {
+        "fieldId": "part4_preparer_state",
+        "itemNumber": "8.g",
+        "fieldName": "Preparer State",
+        "chineseLabel": "准备者州",
+        "englishLabel": "Preparer State",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_State",
+        "instructionNotes": "Enter the two-letter state code",
+        "validationRules": {
+          "required": false,
+          "pattern": "^[A-Z]{2}$",
+          "maxLength": 2,
+          "type": "string"
+        },
+        "helpText": "Two-letter state abbreviation"
+      },
+      {
+        "fieldId": "part4_preparer_zip_code",
+        "itemNumber": "8.h",
+        "fieldName": "Preparer Zip Code",
+        "chineseLabel": "准备者邮编",
+        "englishLabel": "Preparer Zip Code",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Zip_Code",
+        "instructionNotes": "Enter the 5 or 9-digit zip code",
+        "validationRules": {
+          "required": false,
+          "pattern": "^\\d{5}(-\\d{4})?$",
+          "type": "string"
+        },
+        "helpText": "5 or 9-digit zip code"
+      },
+      {
+        "fieldId": "part4_preparer_phone",
+        "itemNumber": "8.i",
+        "fieldName": "Preparer Phone Number",
+        "chineseLabel": "准备者电话号码",
+        "englishLabel": "Preparer Phone Number",
+        "fieldType": "Text Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Phone",
+        "instructionNotes": "Enter the preparer's phone number in (XXX) XXX-XXXX format",
+        "validationRules": {
+          "required": false,
+          "pattern": "^\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+          "type": "string"
+        },
+        "helpText": "(XXX) XXX-XXXX format"
+      },
+      {
+        "fieldId": "part4_preparer_signature",
+        "itemNumber": "8.j",
+        "fieldName": "Preparer Signature",
+        "chineseLabel": "准备者签名",
+        "englishLabel": "Preparer Signature",
+        "fieldType": "Signature",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Signature",
+        "instructionNotes": "Preparer must sign and date this declaration",
+        "validationRules": {
+          "required": false,
+          "type": "signature"
+        },
+        "helpText": "Required if preparer section is completed"
+      },
+      {
+        "fieldId": "part4_preparer_signature_date",
+        "itemNumber": "8.k",
+        "fieldName": "Preparer Signature Date",
+        "chineseLabel": "准备者签名日期",
+        "englishLabel": "Preparer Signature Date",
+        "fieldType": "Date Input",
+        "pdfFieldName": "TopmostSubform[0].Page2[0].Preparer_Signature_Date",
+        "instructionNotes": "Enter the date the preparer signed in MM/DD/YYYY format",
+        "validationRules": {
+          "required": false,
+          "format": "MM/DD/YYYY",
+          "type": "date"
+        },
+        "helpText": "Date preparer signed application"
+      }
+    ]
+  },
+  "validationRules": {
+    "global": {
+      "atLeastOneReasonRequired": {
+        "description": "At least one reason from Part 1 must be selected",
+        "fields": ["part1_reason_1", "part1_reason_2", "part1_reason_3", "part1_reason_4", "part1_reason_5", "part1_reason_6"],
+        "rule": "at_least_one"
+      },
+      "atLeastOneCategoryRequired": {
+        "description": "At least one eligibility category from Part 3 must be selected",
+        "fields": ["part3_category_a", "part3_category_b", "part3_category_c", "part3_category_d", "part3_category_e", "part3_category_f", "part3_category_g", "part3_category_h", "part3_category_i", "part3_category_j", "part3_category_k", "part3_category_l", "part3_category_m", "part3_category_n"],
+        "rule": "at_least_one"
+      },
+      "oneGenderRequired": {
+        "description": "Applicant must select either Male or Female",
+        "fields": ["part2_gender_male", "part2_gender_female"],
+        "rule": "exactly_one"
+      },
+      "oneMaritalStatusAllowed": {
+        "description": "Only one marital status can be selected",
+        "fields": ["part2_marital_status_single", "part2_marital_status_married", "part2_marital_status_divorced", "part2_marital_status_widowed"],
+        "rule": "at_most_one"
+      },
+      "signatureRequiredForSubmission": {
+        "description": "Applicant signature and certification are required to submit the application",
+        "fields": ["part4_applicant_signature", "part4_certify_statement"],
+        "rule": "all_required"
+      },
+      "preparerInfoConditional": {
+        "description": "If preparer section is initiated, certain fields become required",
+        "triggerField": "part4_preparer_different_from_applicant",
+        "requiredFields": ["part4_preparer_name", "part4_preparer_title", "part4_preparer_signature", "part4_preparer_signature_date"],
+        "rule": "conditional"
+      }
+    }
+  },
+  "formStructure": {
+    "page1": {
+      "pageNumber": 1,
+      "sections": ["part1", "part2", "part3"],
+      "title": "Application of Employment Authorization - Page 1"
+    },
+    "page2": {
+      "pageNumber": 2,
+      "sections": ["part4"],
+      "title": "Application of Employment Authorization - Page 2"
+    }
+  },
+  "fieldMapping": {
+    "total_fields": 68,
+    "by_type": {
+      "Text Input": 22,
+      "Checkbox": 25,
+      "Radio": 2,
+      "Date Input": 5,
+      "Signature": 2
+    },
+    "by_page": {
+      "page1": 50,
+      "page2": 18
+    },
+    "required_fields": [
+      "part2_family_name",
+      "part2_given_name",
+      "part2_date_of_birth",
+      "part2_country_of_birth",
+      "part2_country_of_citizenship",
+      "part2_gender_male",
+      "part2_gender_female",
+      "part4_certify_statement",
+      "part4_applicant_signature",
+      "part4_date_of_signature",
+      "part4_declarant_full_name",
+      "part4_declaration_checkbox"
+    ]
+  },
+  "notes": {
+    "completionInstructions": "Complete all required fields marked with * or indicated in validation rules. Provide accurate information as shown in official identity documents.",
+    "submissionRequirements": [
+      "Form must be complete with all required fields filled",
+      "Applicant must sign and date the form",
+      "Certification statement must be checked",
+      "At least one reason for applying must be selected",
+      "At least one eligibility category must be selected",
+      "All dates must be in MM/DD/YYYY format",
+      "Gender and marital status selections must be made"
+    ],
+    "supportingDocuments": [
+      "Valid passport or national ID",
+      "Birth certificate",
+      "Evidence of eligibility category selected",
+      "Any supporting petition forms (I-140, I-485, etc.)",
+      "Proof of identity and residence if applicable"
+    ],
+    "lastModified": "2025-12-09T02:37:47Z",
+    "author": "Form Configuration System",
+    "status": "Complete and Comprehensive"
+  }
+}
