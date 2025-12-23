@@ -1,0 +1,1122 @@
+{
+  "formName": "I-765",
+  "formTitle": "Application for Employment Authorization",
+  "version": "01/20/25",
+  "expires": "09/30/2027",
+  "parts": [
+    {
+      "part": "Part 1. Reason for Applying",
+      "page": 1,
+      "fields": [
+        {
+          "item_number": "1.a.",
+          "field_id": "reason_initial",
+          "field_label_zh": "首次申请就业许可",
+          "field_label_en": "Initial permission to accept employment.",
+          "type": "Checkbox",
+          "required": false,
+          "instruction_notes": "对应 'Initial EAD' (首次EAD卡) 。某些类别（如假释）需先获批才能就业。",
+          "pdf_field_name": "1.a.",
+          "data_path": "eligibilityInfo.applicationPurpose",
+          "value_mapping": {
+            "checked": "initial"
+          }
+        },
+        {
+          "item_number": "1.b.",
+          "field_id": "reason_replacement",
+          "field_label_zh": "更换丢失、被盗、损坏的EAD卡或非USCIS错误的更正",
+          "field_label_en": "Replacement of lost, stolen, or damaged employment authorization document, or correction... NOT DUE to USCIS error.",
+          "type": "Checkbox",
+          "required": false,
+          "instruction_notes": "对应 'Replacement EAD' (更换EAD卡) [cite: 2243]。注意：因USCIS错误导致的更正，不需要新的I-765和申请费 [cite: 2927]。",
+          "pdf_field_name": "1.b.",
+          "data_path": "eligibilityInfo.applicationPurpose",
+          "value_mapping": {
+            "checked": "replacement"
+          }
+        },
+        {
+          "item_number": "1.c.",
+          "field_id": "reason_renewal",
+          "field_label_zh": "更新就业许可",
+          "field_label_en": "Renewal of my permission to accept employment.",
+          "type": "Checkbox",
+          "required": false,
+          "instruction_notes": "对应 'Renewal EAD' (更新EAD卡)，在旧卡到期后，以相同资格类别申请新卡。",
+          "pdf_field_name": "1.c.",
+          "data_path": "eligibilityInfo.applicationPurpose",
+          "value_mapping": {
+            "checked": "renewal"
+          }
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (Your Full Legal Name)",
+      "page": 1,
+      "fields": [
+        {
+          "item_number": "1.a.",
+          "field_id": "last_name",
+          "field_label_zh": "姓氏 (Last Name)",
+          "field_label_en": "Family Name (Last Name)",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 50,
+          "pdf_field_name": "1.a.",
+          "data_path": "personalInfo.lastName",
+          "validation": {
+            "pattern": "^[A-Za-z\\s\\-']+$",
+            "error_message_zh": "姓氏只能包含字母、空格、连字符和撇号",
+            "error_message_en": "Last name can only contain letters, spaces, hyphens, and apostrophes"
+          }
+        },
+        {
+          "item_number": "1.b.",
+          "field_id": "first_name",
+          "field_label_zh": "名字 (First Name)",
+          "field_label_en": "Given Name (First Name)",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 50,
+          "pdf_field_name": "1.b.",
+          "data_path": "personalInfo.firstName",
+          "validation": {
+            "pattern": "^[A-Za-z\\s\\-']+$",
+            "error_message_zh": "名字只能包含字母、空格、连字符和撇号",
+            "error_message_en": "First name can only contain letters, spaces, hyphens, and apostrophes"
+          }
+        },
+        {
+          "item_number": "1.c.",
+          "field_id": "middle_name",
+          "field_label_zh": "中间名 (Middle Name)",
+          "field_label_en": "Middle Name",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "1.c.",
+          "data_path": "personalInfo.middleName",
+          "validation": {
+            "pattern": "^[A-Za-z\\s\\-']*$",
+            "error_message_zh": "中间名只能包含字母、空格、连字符和撇号",
+            "error_message_en": "Middle name can only contain letters, spaces, hyphens, and apostrophes"
+          }
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (Other Names Used)",
+      "page": 1,
+      "fields": [
+        {
+          "item_number": "2.a.",
+          "field_id": "other_last_name_1",
+          "field_label_zh": "其他用名1：姓氏 (Last Name)",
+          "field_label_en": "Family Name (Last Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "2.a.",
+          "data_path": "personalInfo.otherNames.0.lastName"
+        },
+        {
+          "item_number": "2.b.",
+          "field_id": "other_first_name_1",
+          "field_label_zh": "其他用名1：名字 (First Name)",
+          "field_label_en": "Given Name (First Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "2.b.",
+          "data_path": "personalInfo.otherNames.0.firstName"
+        },
+        {
+          "item_number": "2.c.",
+          "field_id": "other_middle_name_1",
+          "field_label_zh": "其他用名1：中间名 (Middle Name)",
+          "field_label_en": "Middle Name",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "2.c.",
+          "data_path": "personalInfo.otherNames.0.middleName"
+        },
+        {
+          "item_number": "3.a.",
+          "field_id": "other_last_name_2",
+          "field_label_zh": "其他用名2：姓氏 (Last Name)",
+          "field_label_en": "Family Name (Last Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "3.a.",
+          "data_path": "personalInfo.otherNames.1.lastName"
+        },
+        {
+          "item_number": "3.b.",
+          "field_id": "other_first_name_2",
+          "field_label_zh": "其他用名2：名字 (First Name)",
+          "field_label_en": "Given Name (First Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "3.b.",
+          "data_path": "personalInfo.otherNames.1.firstName"
+        },
+        {
+          "item_number": "3.c.",
+          "field_id": "other_middle_name_2",
+          "field_label_zh": "其他用名2：中间名 (Middle Name)",
+          "field_label_en": "Middle Name",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "3.c.",
+          "data_path": "personalInfo.otherNames.1.middleName"
+        },
+        {
+          "item_number": "4.a.",
+          "field_id": "other_last_name_3",
+          "field_label_zh": "其他用名3：姓氏 (Last Name)",
+          "field_label_en": "Family Name (Last Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "4.a.",
+          "data_path": "personalInfo.otherNames.2.lastName"
+        },
+        {
+          "item_number": "4.b.",
+          "field_id": "other_first_name_3",
+          "field_label_zh": "其他用名3：名字 (First Name)",
+          "field_label_en": "Given Name (First Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "4.b.",
+          "data_path": "personalInfo.otherNames.2.firstName"
+        },
+        {
+          "item_number": "4.c.",
+          "field_id": "other_middle_name_3",
+          "field_label_zh": "其他用名3：中间名 (Middle Name)",
+          "field_label_en": "Middle Name",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "4.c.",
+          "data_path": "personalInfo.otherNames.2.middleName"
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (Your U.S. Mailing Address)",
+      "page": 2,
+      "fields": [
+        {
+          "item_number": "5.a.",
+          "field_id": "mailing_in_care_of",
+          "field_label_zh": "代收人姓名 (如有)",
+          "field_label_en": "In Care Of Name (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 100,
+          "pdf_field_name": "5.a.",
+          "data_path": "personalInfo.contact.mailingAddress.inCareOf"
+        },
+        {
+          "item_number": "5.b.",
+          "field_id": "mailing_street",
+          "field_label_zh": "街道号和名称",
+          "field_label_en": "Street Number and Name",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 100,
+          "pdf_field_name": "5.b.",
+          "data_path": "personalInfo.contact.mailingAddress.street"
+        },
+        {
+          "item_number": "5.c.",
+          "field_id": "mailing_apt",
+          "field_label_zh": "公寓/单元/楼层",
+          "field_label_en": "Apt/Ste/Flr",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 20,
+          "pdf_field_name": "5.c.",
+          "data_path": "personalInfo.contact.mailingAddress.apt"
+        },
+        {
+          "item_number": "5.d.",
+          "field_id": "mailing_city",
+          "field_label_zh": "城市",
+          "field_label_en": "City or Town",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 50,
+          "pdf_field_name": "5.d.",
+          "data_path": "personalInfo.contact.mailingAddress.city"
+        },
+        {
+          "item_number": "5.e.",
+          "field_id": "mailing_state",
+          "field_label_zh": "州",
+          "field_label_en": "State",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 2,
+          "pdf_field_name": "5.e.",
+          "data_path": "personalInfo.contact.mailingAddress.state"
+        },
+        {
+          "item_number": "5.f.",
+          "field_id": "mailing_zip",
+          "field_label_zh": "邮政编码",
+          "field_label_en": "ZIP Code",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 10,
+          "pdf_field_name": "5.f.",
+          "data_path": "personalInfo.contact.mailingAddress.zipCode",
+          "validation": {
+            "pattern": "^\\d{5}(-\\d{4})?$",
+            "error_message_zh": "邮政编码格式应为 XXXXX 或 XXXXX-XXXX",
+            "error_message_en": "ZIP code format should be XXXXX or XXXXX-XXXX"
+          }
+        },
+        {
+          "item_number": "6.",
+          "field_id": "mailing_same_as_physical",
+          "field_label_zh": "您的当前邮寄地址是否与实际居住地址相同？",
+          "field_label_en": "Is your current mailing address the same as your physical address?",
+          "type": "Radio",
+          "required": true,
+          "options": [
+            {
+              "value": "Yes",
+              "label_en": "Yes",
+              "label_zh": "是"
+            },
+            {
+              "value": "No",
+              "label_en": "No",
+              "label_zh": "否"
+            }
+          ],
+          "pdf_field_name": "6.",
+          "data_path": "personalInfo.contact.mailingSameAsPhysical"
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (U.S. Physical Address)",
+      "page": 2,
+      "fields": [
+        {
+          "item_number": "7.a.",
+          "field_id": "physical_street",
+          "field_label_zh": "街道号和名称",
+          "field_label_en": "Street Number and Name",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 100,
+          "pdf_field_name": "7.a.",
+          "data_path": "personalInfo.contact.address.street",
+          "conditional": {
+            "depends_on": "6.",
+            "show_if": "No"
+          }
+        },
+        {
+          "item_number": "7.b.",
+          "field_id": "physical_apt",
+          "field_label_zh": "公寓/单元/楼层",
+          "field_label_en": "Apt/Ste/Flr",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 20,
+          "pdf_field_name": "7.b.",
+          "data_path": "personalInfo.contact.address.apt",
+          "conditional": {
+            "depends_on": "6.",
+            "show_if": "No"
+          }
+        },
+        {
+          "item_number": "7.c.",
+          "field_id": "physical_city",
+          "field_label_zh": "城市",
+          "field_label_en": "City or Town",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "7.c.",
+          "data_path": "personalInfo.contact.address.city",
+          "conditional": {
+            "depends_on": "6.",
+            "show_if": "No"
+          }
+        },
+        {
+          "item_number": "7.d.",
+          "field_id": "physical_state",
+          "field_label_zh": "州",
+          "field_label_en": "State",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 2,
+          "pdf_field_name": "7.d.",
+          "data_path": "personalInfo.contact.address.state",
+          "conditional": {
+            "depends_on": "6.",
+            "show_if": "No"
+          }
+        },
+        {
+          "item_number": "7.e.",
+          "field_id": "physical_zip",
+          "field_label_zh": "邮政编码",
+          "field_label_en": "ZIP Code",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 10,
+          "pdf_field_name": "7.e.",
+          "data_path": "personalInfo.contact.address.zipCode",
+          "conditional": {
+            "depends_on": "6.",
+            "show_if": "No"
+          }
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (Other Information)",
+      "page": 2,
+      "fields": [
+        {
+          "item_number": "8.",
+          "field_id": "alien_number",
+          "field_label_zh": "外国人登记号码 (A-Number) (如有)",
+          "field_label_en": "Alien Registration Number (A-Number) (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 10,
+          "pdf_field_name": "8.",
+          "data_path": "immigrationDetails.uscisNumber",
+          "validation": {
+            "pattern": "^A\\d{8,9}$",
+            "error_message_zh": "A号码格式应为 A 后跟8或9位数字",
+            "error_message_en": "A-Number format should be A followed by 8 or 9 digits"
+          }
+        },
+        {
+          "item_number": "9.",
+          "field_id": "uscis_account_number",
+          "field_label_zh": "USCIS在线账户号码 (如有)",
+          "field_label_en": "USCIS Online Account Number (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 20,
+          "pdf_field_name": "9.",
+          "data_path": "immigrationDetails.uscisAccountNumber"
+        },
+        {
+          "item_number": "10.",
+          "field_id": "gender",
+          "field_label_zh": "性别",
+          "field_label_en": "Sex (Male/Female)",
+          "type": "Radio",
+          "required": true,
+          "options": [
+            {
+              "value": "M",
+              "label_en": "Male",
+              "label_zh": "男性"
+            },
+            {
+              "value": "F",
+              "label_en": "Female",
+              "label_zh": "女性"
+            }
+          ],
+          "pdf_field_name": "10.",
+          "data_path": "personalInfo.gender"
+        },
+        {
+          "item_number": "11.",
+          "field_id": "marital_status",
+          "field_label_zh": "婚姻状况",
+          "field_label_en": "Marital Status",
+          "type": "Radio",
+          "required": true,
+          "options": [
+            {
+              "value": "Single",
+              "label_en": "Single",
+              "label_zh": "未婚"
+            },
+            {
+              "value": "Married",
+              "label_en": "Married",
+              "label_zh": "已婚"
+            },
+            {
+              "value": "Divorced",
+              "label_en": "Divorced",
+              "label_zh": "离异"
+            },
+            {
+              "value": "Widowed",
+              "label_en": "Widowed",
+              "label_zh": "丧偶"
+            },
+            {
+              "value": "Separated",
+              "label_en": "Separated",
+              "label_zh": "分居"
+            }
+          ],
+          "pdf_field_name": "11.",
+          "data_path": "personalInfo.maritalStatus"
+        },
+        {
+          "item_number": "12.",
+          "field_id": "previously_filed_i765",
+          "field_label_zh": "您之前是否申请过I-765表格？",
+          "field_label_en": "Have you previously filed Form I-765?",
+          "type": "Radio",
+          "required": true,
+          "options": [
+            {
+              "value": "Yes",
+              "label_en": "Yes",
+              "label_zh": "是"
+            },
+            {
+              "value": "No",
+              "label_en": "No",
+              "label_zh": "否"
+            }
+          ],
+          "pdf_field_name": "12.",
+          "data_path": "immigrationDetails.priorEAD.hasObtainedBefore"
+        },
+        {
+          "item_number": "13.a.",
+          "field_id": "ssa_issued_card",
+          "field_label_zh": "SSA是否曾向您正式签发过社会安全卡？",
+          "field_label_en": "Has the Social Security Administration (SSA) ever officially issued a Social Security card to you?",
+          "type": "Radio",
+          "required": true,
+          "options": [
+            {
+              "value": "Yes",
+              "label_en": "Yes",
+              "label_zh": "是"
+            },
+            {
+              "value": "No",
+              "label_en": "No",
+              "label_zh": "否"
+            }
+          ],
+          "pdf_field_name": "13.a.",
+          "data_path": "personalInfo.ssn.hasSSN"
+        },
+        {
+          "item_number": "13.b.",
+          "field_id": "ssn_number",
+          "field_label_zh": "提供您的社会安全号码 (SSN) (如果知道)",
+          "field_label_en": "Provide your Social Security number (SSN) (if known).",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 11,
+          "pdf_field_name": "13.b.",
+          "data_path": "personalInfo.ssn.number",
+          "validation": {
+            "pattern": "^\\d{3}-\\d{2}-\\d{4}$",
+            "error_message_zh": "SSN格式应为 XXX-XX-XXXX",
+            "error_message_en": "SSN format should be XXX-XX-XXXX"
+          },
+          "conditional": {
+            "depends_on": "13.a.",
+            "show_if": "Yes"
+          }
+        },
+        {
+          "item_number": "14.",
+          "field_id": "want_ssa_card",
+          "field_label_zh": "您是否希望SSA向您签发社会安全卡？",
+          "field_label_en": "Do you want the SSA to issue you a Social Security card?",
+          "type": "Radio",
+          "required": true,
+          "options": [
+            {
+              "value": "Yes",
+              "label_en": "Yes",
+              "label_zh": "是"
+            },
+            {
+              "value": "No",
+              "label_en": "No",
+              "label_zh": "否"
+            }
+          ],
+          "pdf_field_name": "14.",
+          "data_path": "personalInfo.ssn.wantSSACard"
+        },
+        {
+          "item_number": "15.",
+          "field_id": "consent_for_disclosure",
+          "field_label_zh": "同意披露：我授权向SSA披露信息",
+          "field_label_en": "Consent for Disclosure: I authorize disclosure of information from this application to the SSA",
+          "type": "Radio",
+          "required": true,
+          "options": [
+            {
+              "value": "Yes",
+              "label_en": "Yes",
+              "label_zh": "是"
+            },
+            {
+              "value": "No",
+              "label_en": "No",
+              "label_zh": "否"
+            }
+          ],
+          "pdf_field_name": "15.",
+          "data_path": "personalInfo.ssn.consentForDisclosure",
+          "conditional": {
+            "depends_on": "14.",
+            "show_if": "Yes"
+          }
+        },
+        {
+          "item_number": "16.a.",
+          "field_id": "father_last_name",
+          "field_label_zh": "父亲姓氏 (Last Name)",
+          "field_label_en": "Father's Family Name (Last Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "16.a.",
+          "data_path": "personalInfo.fatherName.lastName",
+          "conditional": {
+            "depends_on": "14.",
+            "show_if": "Yes"
+          }
+        },
+        {
+          "item_number": "16.b.",
+          "field_id": "father_first_name",
+          "field_label_zh": "父亲名字 (First Name)",
+          "field_label_en": "Father's Given Name (First Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "16.b.",
+          "data_path": "personalInfo.fatherName.firstName",
+          "conditional": {
+            "depends_on": "14.",
+            "show_if": "Yes"
+          }
+        },
+        {
+          "item_number": "17.a.",
+          "field_id": "mother_last_name",
+          "field_label_zh": "母亲姓氏 (Last Name)",
+          "field_label_en": "Mother's Family Name (Last Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "17.a.",
+          "data_path": "personalInfo.motherName.lastName",
+          "conditional": {
+            "depends_on": "14.",
+            "show_if": "Yes"
+          }
+        },
+        {
+          "item_number": "17.b.",
+          "field_id": "mother_first_name",
+          "field_label_zh": "母亲名字 (First Name)",
+          "field_label_en": "Mother's Given Name (First Name)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "17.b.",
+          "data_path": "personalInfo.motherName.firstName",
+          "conditional": {
+            "depends_on": "14.",
+            "show_if": "Yes"
+          }
+        },
+        {
+          "item_number": "18.a.",
+          "field_id": "citizenship_country_1",
+          "field_label_zh": "国籍国家1",
+          "field_label_en": "Country of Citizenship or Nationality",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "18.a.",
+          "data_path": "personalInfo.citizenship.0"
+        },
+        {
+          "item_number": "18.b.",
+          "field_id": "citizenship_country_2",
+          "field_label_zh": "国籍国家2",
+          "field_label_en": "Country of Citizenship or Nationality",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "18.b.",
+          "data_path": "personalInfo.citizenship.1"
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (Place of Birth)",
+      "page": 3,
+      "fields": [
+        {
+          "item_number": "19.a.",
+          "field_id": "birth_city",
+          "field_label_zh": "出生城市/城镇/村庄",
+          "field_label_en": "City/Town/Village of Birth",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "19.a.",
+          "data_path": "personalInfo.birthPlace.city"
+        },
+        {
+          "item_number": "19.b.",
+          "field_id": "birth_state_province",
+          "field_label_zh": "出生州/省",
+          "field_label_en": "State/Province of Birth",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "19.b.",
+          "data_path": "personalInfo.birthPlace.stateProvince"
+        },
+        {
+          "item_number": "19.c.",
+          "field_id": "birth_country",
+          "field_label_zh": "出生国家",
+          "field_label_en": "Country of Birth",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "19.c.",
+          "data_path": "personalInfo.birthPlace.country"
+        },
+        {
+          "item_number": "20.",
+          "field_id": "date_of_birth",
+          "field_label_zh": "出生日期 (mm/dd/yyyy)",
+          "field_label_en": "Date of Birth (mm/dd/yyyy)",
+          "type": "Date Input",
+          "required": true,
+          "pdf_field_name": "20.",
+          "data_path": "personalInfo.dateOfBirth",
+          "validation": {
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$",
+            "error_message_zh": "日期格式应为 MM/DD/YYYY",
+            "error_message_en": "Date format should be MM/DD/YYYY"
+          }
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (Last Arrival in the United States)",
+      "page": 3,
+      "fields": [
+        {
+          "item_number": "21.a.",
+          "field_id": "i94_number",
+          "field_label_zh": "Form I-94 入境/离境记录号码 (如有)",
+          "field_label_en": "Form I-94 Arrival-Departure Record Number (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 11,
+          "pdf_field_name": "21.a.",
+          "data_path": "immigrationDetails.i94Number",
+          "validation": {
+            "pattern": "^\\d{11}$",
+            "error_message_zh": "I-94号码应为11位数字",
+            "error_message_en": "I-94 number should be 11 digits"
+          }
+        },
+        {
+          "item_number": "21.b.",
+          "field_id": "passport_number",
+          "field_label_zh": "最近签发的护照号码",
+          "field_label_en": "Passport Number of Your Most Recently Issued Passport",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "21.b.",
+          "data_path": "personalInfo.passport.number"
+        },
+        {
+          "item_number": "21.c.",
+          "field_id": "travel_document_number",
+          "field_label_zh": "旅行证件号码 (如有)",
+          "field_label_en": "Travel Document Number (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "21.c.",
+          "data_path": "personalInfo.travelDocument.number"
+        },
+        {
+          "item_number": "21.d.",
+          "field_id": "passport_issuance_country",
+          "field_label_zh": "签发护照或旅行证件的国家",
+          "field_label_en": "Country That Issued Your Passport or Travel Document",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "21.d.",
+          "data_path": "personalInfo.passport.issuanceCountry"
+        },
+        {
+          "item_number": "21.e.",
+          "field_id": "passport_expiration_date",
+          "field_label_zh": "护照或旅行证件过期日期 (mm/dd/yyyy)",
+          "field_label_en": "Expiration Date for Passport or Travel Document (mm/dd/yyyy)",
+          "type": "Date Input",
+          "required": false,
+          "pdf_field_name": "21.e.",
+          "data_path": "personalInfo.passport.expirationDate"
+        },
+        {
+          "item_number": "22.",
+          "field_id": "last_arrival_date",
+          "field_label_zh": "您最近一次入境美国的日期 (mm/dd/yyyy)",
+          "field_label_en": "Date of Your Last Arrival Into the United States, On or About (mm/dd/yyyy)",
+          "type": "Date Input",
+          "required": false,
+          "pdf_field_name": "22.",
+          "data_path": "immigrationDetails.entryDate"
+        },
+        {
+          "item_number": "23.",
+          "field_id": "last_arrival_place",
+          "field_label_zh": "您最近一次入境美国的地点",
+          "field_label_en": "Place of Your Last Arrival Into the United States",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 100,
+          "pdf_field_name": "23.",
+          "data_path": "immigrationDetails.portOfEntry"
+        },
+        {
+          "item_number": "24.",
+          "field_id": "immigration_status_at_arrival",
+          "field_label_zh": "您最近一次入境时的移民身份",
+          "field_label_en": "Immigration Status at Your Last Arrival (for example, B-2 visitor, F-1 student, or no status)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "24.",
+          "data_path": "immigrationDetails.visaType"
+        },
+        {
+          "item_number": "25.",
+          "field_id": "current_immigration_status",
+          "field_label_zh": "您当前的移民身份或类别",
+          "field_label_en": "Your Current Immigration Status or Category (for example, B-2 visitor, F-1 student, parolee, deferred action, or no status or category)",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 50,
+          "pdf_field_name": "25.",
+          "data_path": "immigrationDetails.currentStatus"
+        },
+        {
+          "item_number": "26.",
+          "field_id": "sevis_number",
+          "field_label_zh": "SEVIS号码 (如有)",
+          "field_label_en": "Student and Exchange Visitor Information System (SEVIS) Number (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 20,
+          "pdf_field_name": "26.",
+          "data_path": "immigrationDetails.sevisNumber"
+        }
+      ]
+    },
+    {
+      "part": "Part 2. Information About You (Eligibility Category)",
+      "page": 3,
+      "fields": [
+        {
+          "item_number": "27.",
+          "field_id": "eligibility_category",
+          "field_label_zh": "资格类别",
+          "field_label_en": "Eligibility Category.",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 50,
+          "instruction_notes": "必须填写，例如：(a)(8), (c)(17)(iii)。必须参考说明书确定适当的资格类别。例如，难民是(a)(3)，待审庇护申请人是(c)(8)。",
+          "pdf_field_name": "27.",
+          "data_path": "eligibilityInfo.category",
+          "validation": {
+            "pattern": "^\\([a-z]\\)\\(\\d+\\)(?:\\([ivx]+\\))?$",
+            "error_message_zh": "资格类别格式应为 (a)(8) 或 (c)(17)(iii)",
+            "error_message_en": "Eligibility category format should be (a)(8) or (c)(17)(iii)"
+          }
+        },
+        {
+          "item_number": "28.a.",
+          "field_id": "stem_opt_degree",
+          "field_label_zh": "(c)(3)(C) STEM OPT 资格类别：学位",
+          "field_label_en": "(c)(3)(C) STEM OPT Eligibility Category. Degree",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 100,
+          "instruction_notes": "如果选择了(c)(3)(C)，需要提供学位信息 [cite: 3062, 3063]。",
+          "pdf_field_name": "28.a.",
+          "data_path": "eligibilityInfo.stemOpt.degree",
+          "conditional": {
+            "depends_on": "27.",
+            "show_if_pattern": "\\(c\\)\\(3\\)\\(C\\)"
+          }
+        },
+        {
+          "item_number": "28.b.",
+          "field_id": "stem_opt_employer",
+          "field_label_zh": "(c)(3)(C) STEM OPT 资格类别：E-Verify中列出的雇主名称",
+          "field_label_en": "(c)(3)(C) STEM OPT Eligibility Category. Employer's Name as Listed in E-Verify",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 100,
+          "instruction_notes": "如果选择了(c)(3)(C)，需要提供雇主E-Verify名称 [cite: 3062, 3064]。",
+          "pdf_field_name": "28.b.",
+          "data_path": "eligibilityInfo.stemOpt.employerName",
+          "conditional": {
+            "depends_on": "27.",
+            "show_if_pattern": "\\(c\\)\\(3\\)\\(C\\)"
+          }
+        },
+        {
+          "item_number": "28.c.",
+          "field_id": "stem_opt_everify_number",
+          "field_label_zh": "(c)(3)(C) STEM OPT 资格类别：E-Verify公司识别号码",
+          "field_label_en": "Employer's E-Verify Company Identification Number or a Valid E-Verify Client Company Identification Number",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 50,
+          "pdf_field_name": "28.c.",
+          "data_path": "eligibilityInfo.stemOpt.eVerifyNumber",
+          "conditional": {
+            "depends_on": "27.",
+            "show_if_pattern": "\\(c\\)\\(3\\)\\(C\\)"
+          }
+        },
+        {
+          "item_number": "29.",
+          "field_id": "c26_i797_receipt",
+          "field_label_zh": "(c)(26) 资格类别：H-1B配偶的I-797收据号码",
+          "field_label_en": "(c)(26) Eligibility Category. If you entered the eligibility category (c)(26) in Item Number 27., provide the receipt number of your H-1B spouse's most recent Form I-797 Notice for Form I-129",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 13,
+          "pdf_field_name": "29.",
+          "data_path": "eligibilityInfo.c26.i797ReceiptNumber",
+          "conditional": {
+            "depends_on": "27.",
+            "show_if_pattern": "\\(c\\)\\(26\\)"
+          }
+        },
+        {
+          "item_number": "30.",
+          "field_id": "c8_arrested_convicted",
+          "field_label_zh": "(c)(8) 资格类别：您是否曾被逮捕和/或被定罪？",
+          "field_label_en": "(c)(8) Eligibility Category. If you entered the eligibility category (c)(8) in Item Number 27., have you EVER been arrested for and/or convicted of any crime?",
+          "type": "Radio",
+          "required": false,
+          "options": [
+            {
+              "value": "Yes",
+              "label_en": "Yes",
+              "label_zh": "是"
+            },
+            {
+              "value": "No",
+              "label_en": "No",
+              "label_zh": "否"
+            }
+          ],
+          "pdf_field_name": "30.",
+          "data_path": "eligibilityInfo.c8.hasBeenArrested",
+          "conditional": {
+            "depends_on": "27.",
+            "show_if_pattern": "\\(c\\)\\(8\\)"
+          }
+        },
+        {
+          "item_number": "31.a.",
+          "field_id": "c35_c36_i797_receipt",
+          "field_label_zh": "(c)(35) 或 (c)(36) 资格类别：I-797收据号码",
+          "field_label_en": "(c)(35) and (c)(36) Eligibility Category. If you entered the eligibility category (c)(35) in Item Number 27., please provide the receipt number of your Form I-797 Notice for Form I-140. If you entered the eligibility category (c)(36) in Item Number 27., please provide the receipt number of your spouse's or parent's Form I-797 Notice for Form I-140.",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 13,
+          "pdf_field_name": "31.a.",
+          "data_path": "eligibilityInfo.c35c36.i797ReceiptNumber",
+          "conditional": {
+            "depends_on": "27.",
+            "show_if_pattern": "\\(c\\)\\(35\\)|\\(c\\)\\(36\\)"
+          }
+        },
+        {
+          "item_number": "31.b.",
+          "field_id": "c35_c36_arrested_convicted",
+          "field_label_zh": "(c)(35) 或 (c)(36) 资格类别：您是否曾被逮捕和/或被定罪？",
+          "field_label_en": "If you entered the eligibility category (c)(35) or (c)(36) in Item Number 27., have you EVER been arrested for and/or convicted of any crime?",
+          "type": "Radio",
+          "required": false,
+          "options": [
+            {
+              "value": "Yes",
+              "label_en": "Yes",
+              "label_zh": "是"
+            },
+            {
+              "value": "No",
+              "label_en": "No",
+              "label_zh": "否"
+            }
+          ],
+          "pdf_field_name": "31.b.",
+          "data_path": "eligibilityInfo.c35c36.hasBeenArrested",
+          "conditional": {
+            "depends_on": "27.",
+            "show_if_pattern": "\\(c\\)\\(35\\)|\\(c\\)\\(36\\)"
+          }
+        }
+      ]
+    },
+    {
+      "part": "Part 3. Applicant's Statement, Contact Information...",
+      "page": 4,
+      "fields": [
+        {
+          "item_number": "1.a.",
+          "field_id": "can_read_english",
+          "field_label_zh": "我能够阅读和理解英文",
+          "field_label_en": "I can read and understand English, and I have read and understand every question and instruction on this application and my answer to every question.",
+          "type": "Checkbox",
+          "required": false,
+          "pdf_field_name": "1.a.",
+          "data_path": "metadata.canReadEnglish"
+        },
+        {
+          "item_number": "1.b.",
+          "field_id": "used_interpreter",
+          "field_label_zh": "我使用了口译员",
+          "field_label_en": "The interpreter named in Part 4. read to me every question and instruction on this application and my answer to every question.",
+          "type": "Checkbox",
+          "required": false,
+          "pdf_field_name": "1.b.",
+          "data_path": "metadata.usedInterpreter"
+        },
+        {
+          "item_number": "2.",
+          "field_id": "used_preparer",
+          "field_label_zh": "我使用了代填表人",
+          "field_label_en": "At my request, the preparer named in Part 5., prepared this application for me based only upon information I provided or authorized.",
+          "type": "Checkbox",
+          "required": false,
+          "pdf_field_name": "2.",
+          "data_path": "metadata.usedPreparer"
+        },
+        {
+          "item_number": "3.",
+          "field_id": "daytime_phone",
+          "field_label_zh": "申请人白天电话号码",
+          "field_label_en": "Applicant's Daytime Telephone Number",
+          "type": "Text Input",
+          "required": true,
+          "max_length": 20,
+          "pdf_field_name": "3.",
+          "data_path": "personalInfo.contact.phoneNumber",
+          "validation": {
+            "pattern": "^[\\d\\s\\-\\(\\)\\+]+$",
+            "error_message_zh": "电话号码格式无效",
+            "error_message_en": "Invalid phone number format"
+          }
+        },
+        {
+          "item_number": "4.",
+          "field_id": "mobile_phone",
+          "field_label_zh": "申请人手机号码 (如有)",
+          "field_label_en": "Applicant's Mobile Telephone Number (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 20,
+          "pdf_field_name": "4.",
+          "data_path": "personalInfo.contact.mobileNumber"
+        },
+        {
+          "item_number": "5.",
+          "field_id": "email_address",
+          "field_label_zh": "申请人电子邮箱地址 (如有)",
+          "field_label_en": "Applicant's Email Address (if any)",
+          "type": "Text Input",
+          "required": false,
+          "max_length": 100,
+          "pdf_field_name": "5.",
+          "data_path": "personalInfo.contact.email",
+          "validation": {
+            "pattern": "^[^@]+@[^@]+\\.[^@]+$",
+            "error_message_zh": "电子邮件地址格式无效",
+            "error_message_en": "Invalid email address format"
+          }
+        },
+        {
+          "item_number": "6.",
+          "field_id": "abc_settlement_agreement",
+          "field_label_zh": "ABC和解协议受益人（萨尔瓦多或危地马拉国民）",
+          "field_label_en": "Select this box if you are a Salvadoran or Guatemalan national eligible for benefits under the ABC settlement agreement.",
+          "type": "Checkbox",
+          "required": false,
+          "pdf_field_name": "6.",
+          "data_path": "eligibilityInfo.abcSettlementAgreement"
+        },
+        {
+          "item_number": "7.a.",
+          "field_id": "applicant_signature",
+          "field_label_zh": "申请人签名",
+          "field_label_en": "Applicant's Signature",
+          "type": "Signature",
+          "required": true,
+          "pdf_field_name": "7.a.",
+          "data_path": "metadata.signature"
+        },
+        {
+          "item_number": "7.b.",
+          "field_id": "signature_date",
+          "field_label_zh": "签名日期 (mm/dd/yyyy)",
+          "field_label_en": "Date of Signature (mm/dd/yyyy)",
+          "type": "Date Input",
+          "required": true,
+          "pdf_field_name": "7.b.",
+          "data_path": "metadata.signatureDate",
+          "validation": {
+            "pattern": "^\\d{2}/\\d{2}/\\d{4}$",
+            "error_message_zh": "日期格式应为 MM/DD/YYYY",
+            "error_message_en": "Date format should be MM/DD/YYYY"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
