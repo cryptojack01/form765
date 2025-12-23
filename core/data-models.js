@@ -22,26 +22,60 @@ class ApplicantProfile {
       contact: {
         email: '',
         phoneNumber: '',
+        mobileNumber: '',
         address: {
           street: '',
+          apt: '',
           city: '',
           state: '',
           zipCode: '',
           country: ''
         },
         mailingAddress: {
+          inCareOf: '',
           street: '',
+          apt: '',
           city: '',
           state: '',
           zipCode: '',
           country: ''
-        }
+        },
+        mailingSameAsPhysical: ''
+      },
+      otherNames: [
+        { lastName: '', firstName: '', middleName: '' },
+        { lastName: '', firstName: '', middleName: '' },
+        { lastName: '', firstName: '', middleName: '' }
+      ],
+      birthPlace: {
+        city: '',
+        stateProvince: '',
+        country: ''
+      },
+      citizenship: [],
+      fatherName: {
+        lastName: '',
+        firstName: ''
+      },
+      motherName: {
+        lastName: '',
+        firstName: ''
+      },
+      ssn: {
+        hasSSN: '',
+        number: '',
+        wantSSACard: '',
+        consentForDisclosure: ''
+      },
+      travelDocument: {
+        number: ''
       }
     };
 
     // Immigration Details
     this.immigrationDetails = {
       uscisNumber: '', // A-Number
+      uscisAccountNumber: '',
       i94Number: '',
       currentStatus: '', // e.g., F-1, H-1B, L-1, Asylee, etc.
       statusValidFrom: '', // Format: YYYY-MM-DD
@@ -49,7 +83,9 @@ class ApplicantProfile {
       entryDate: '', // Date of entry to US - Format: YYYY-MM-DD
       portOfEntry: '',
       visaType: '',
+      immigrationStatusAtArrival: '',
       i797NoticeNumber: '', // USCIS Receipt Number
+      sevisNumber: '',
       priorEAD: {
         hasObtainedBefore: false,
         previousEADNumber: '',
@@ -99,7 +135,23 @@ class ApplicantProfile {
       },
       applicationPurpose: '', // Reason for applying for work authorization
       requestedCategory: '', // Requested EAD category
-      isEligible: null // null = not determined, true = eligible, false = not eligible
+      isEligible: null, // null = not determined, true = eligible, false = not eligible
+      stemOpt: {
+        degree: '',
+        employerName: '',
+        eVerifyNumber: ''
+      },
+      c26: {
+        i797ReceiptNumber: ''
+      },
+      c8: {
+        hasBeenArrested: ''
+      },
+      c35c36: {
+        i797ReceiptNumber: '',
+        hasBeenArrested: ''
+      },
+      abcSettlementAgreement: false
     };
 
     // Form Metadata
@@ -115,7 +167,12 @@ class ApplicantProfile {
       applicationId: this._generateApplicationId(),
       notes: [],
       attachments: [],
-      completionPercentage: 0
+      completionPercentage: 0,
+      signature: '',
+      signatureDate: '',
+      canReadEnglish: false,
+      usedInterpreter: false,
+      usedPreparer: false
     };
 
     // Supporting Documents
@@ -391,4 +448,9 @@ class ApplicantProfile {
 // Export for use in Node.js/CommonJS environments
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = ApplicantProfile;
+}
+
+// Make available globally for browser
+if (typeof window !== 'undefined') {
+  window.ApplicantProfile = ApplicantProfile;
 }
